@@ -65,7 +65,7 @@ body {
 
 .ksl-logo {
   font-family: 'Keania One', sans-serif;
-  font-weight: 700;
+  font-weight: lighter;
   letter-spacing: 0.12em;
   font-size: 1.2rem;
   color: var(--accent);
@@ -390,6 +390,9 @@ body {
 }
 
 .ksl-footer-brand h2 {
+  font-family: 'Keania One', sans-serif;
+  font-weight: lighter;
+  letter-spacing: 2px;
   margin: 0 0 0.4rem;
 }
 
@@ -540,4 +543,80 @@ body {
   .ksl-footer-social {
     justify-content: flex-start;
   }
+}
+
+.ksl-now-playing {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 58px;
+  background: rgba(5, 0, 20, 0.92);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 50;
+}
+
+.ksl-np-info {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ksl-np-label {
+  color: var(--accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.ksl-np-title {
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.ksl-np-eq {
+  display: flex;
+  gap: 4px;
+  height: 22px;
+  align-items: flex-end;
+}
+
+.ksl-np-eq span {
+  width: 6px;
+  background: linear-gradient(
+    to top, 
+    var(--accent-soft), 
+    var(--accent));
+  border-radius: 999px;
+  animation: eq-bounce 1s ease-in-out infinite;
+}
+
+.ksl-np-eq span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.ksl-np-eq span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.ksl-np-eq span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.ksl-np-eq span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.ksl-hero-reactive {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255, 75, 255, 0.15), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
 }

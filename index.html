@@ -28,6 +28,8 @@
   <main>
     <section id="hero" class="ksl-hero">
       <canvas id="heroCanvas"></canvas>
+      <div class="ksl-hero-reactive" id="heroReactive"></div>
+
       <div class="ksl-hero-content">
         <h1>Where Cosmic Vibes Become Sound</h1>
         <p>Independent music studio crafting interstellar mixes, neon-lit beats, and immersive sonic worlds.</p>
@@ -35,7 +37,6 @@
       </div>
     </section>
 
-    <!-- SECTION 1: ARTISTS -->
     <section id="artists" class="ksl-section ksl-section-artists">
       <div class="ksl-section-inner">
         <h2>Featured Kosmik Artists</h2>
@@ -54,7 +55,7 @@
             <span class="ksl-tag">Bass / Experimental</span>
           </article>
           <article class="ksl-card ksl-observe">
-            <h3>Midlands Aurora</h3>
+            <h3>Aurora</h3>
             <p>Organic guitars, analog warmth, and cosmic ambience rooted in real-world grit.</p>
             <span class="ksl-tag">Indie / Ambient</span>
           </article>
@@ -95,6 +96,16 @@
     </section>
   </main>
 
+  <div class="ksl-now-playing">
+    <div class="ksl-np-info">
+      <span class="ksl-np-label">Now Playing:</span>
+      <span class="ksl-np-title" id="npTitle">Graviton Pulse - Neon Collapse</span>
+    </div>
+    <div class="ksl-np-eq">
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
   <footer id="contact" class="ksl-footer">
     <div class="ksl-footer-glow"></div>
     <div class="ksl-footer-inner">
@@ -115,7 +126,7 @@
     <div class="ksl-footer-eq">
       <span></span><span></span><span></span><span></span><span></span>
     </div>
-  </footer>
+  </footer> 
 
   <script src="script.js"></script>
 </body>

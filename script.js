@@ -141,3 +141,41 @@ if (canvas) {
   resize()
   draw()
 }
+
+const heroGlow = document.getElementById('heroReactive')
+let audioCtx, analyser, dataArray
+
+function initAudioReactive() {
+  const audio = new Audio('./audio/track.mp3')
+  audio.loop = true
+  audio.volume = 0.4
+
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)()
+  const source = audioCtx.createMediaElementSource(audio)
+  analyser = audioCtx.createAnalyser()
+  analyser.fftSize = 256
+
+  source.connect(analyser)
+  analyser.connect(audioCtx.destination)
+
+  dataArray = new Uint8Array(analyser.frequencyBinCount)
+
+  audio.play()
+  animateGlow()
+}
+
+function animateGlow() {
+  requestAnimationFrame(animateGlow)
+  analyser.getByteFrequencyData(dataArray)
+
+  const bass = dataArray.slice(0, 20).reduce((a, b) => a + b, 0) / 20
+  const intensity = bass / 255
+
+  heroGlow.style.opacity = intensity * 0.9
+  heroGlow.style.transform = `scale(${1 + intensity * 0.15})`
+}
+
+window.addEventListener('click', () => {
+  if (!audioCtx) initAudioReactive()
+})
+
